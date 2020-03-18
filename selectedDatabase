@@ -1,0 +1,19 @@
+#!usr/bin/bash
+clear
+
+
+echo -n "Enter Database Name: "
+read database
+export
+
+if [ -d ~/Databases/"$database" ]
+then
+	clear
+	source ~/project/DatabaseMenu
+else
+	echo -e "There is no Database with this name"
+	source ~/project/mainMenu
+fi
+
+
+

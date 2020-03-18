@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+clear
+
+
+if ! [ -d ~/Databases ]
+then
+	mkdir ~/Databases
+else
+	cd ~/Databases
+fi
+
+
+echo -e "=====Database Engine MainMenu=====\n"
+PS3="Choose an option: "
+
+options=("CreateDatabase" "ListDatabases" "ConnectToDatabase" "DropDatabase" "Exit")
+
+select choice in "${options[@]}"
+do
+case "$choice" in 
+	CreateDatabase)
+		source ~/project/createDatabase
+		;;
+				
+	ListDatabases)
+		source ~/project/listDatabases
+		;;
+	ConnectToDatabase)
+		source ~/project/selectedDatabase
+		source ~/project/DatabaseMenu
+		;;
+	DropDatabase)
+		source ~/project/deleteDatabase
+		;;
+	Exit)
+		exit
+		;;
+	*)
+		echo -e "Wrong Choice\n"
+esac
+done
+
+

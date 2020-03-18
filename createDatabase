@@ -1,0 +1,15 @@
+#!usr/bin/bash
+clear
+
+
+echo -n "Enter Database Name: "
+read database
+if [ -d ~/Databases/"$database" ]
+then
+	echo "Name Already Exist,Choose another name \n"
+else
+	mkdir ~/Databases/"$database"
+fi
+
+. ~/project/mainMenu
+

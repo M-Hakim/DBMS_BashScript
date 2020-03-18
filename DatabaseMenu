@@ -1,0 +1,37 @@
+#!/bin/bash
+clear
+
+echo -e "##########Connecting to $database##########"
+cd ~/Databases/"$database"
+
+PS3="Choose an option:"
+
+options=("createTable"  "listTables" "dropTable" "insertInTable" "selectFromTable" "deleteFromTable")
+
+
+select choice in "${options[@]}"
+do
+        case $choice in
+                createTable)
+                        echo "create table"
+                        ;;
+                listTables)
+                        echo "list tables"
+                        ;;
+                dropTable)
+                        echo "drop table"
+                        ;;
+                insertInTable)
+                        echo "insert in table"
+                        ;;
+                selectFromTable)
+                        echo "select from table"
+                        ;;
+                deleteFromTable)
+                        echo "delete from table"
+                        ;;
+                *)
+                        echo "wrong choice"
+                        ;;
+        esac
+done

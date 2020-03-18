@@ -1,0 +1,27 @@
+#!usr/bin/bash
+clear
+
+db=`ls ~/Databases | wc -l`
+
+if ((db == 0))
+then
+	echo "No DataBase To Delete"
+	source ~/project/mainMenu
+else
+	echo -e "#######DataBases#######"
+	ls ~/Databases
+	echo
+	echo "Choose Database To Delete: "
+	read selectedDB
+	if [ -d ~/Databases ]
+	then
+		rm -r ~/Databases/"$selectedDB"
+		clear
+		echo "($selectedDB) Deleted"
+	else
+		echo "No DataBase with this name"
+	fi
+	source ~/project/mainMenu
+
+fi
+
