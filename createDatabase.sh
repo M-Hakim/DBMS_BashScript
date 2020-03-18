@@ -1,22 +1,22 @@
 #!usr/bin/bash
 clear
-if ! [ -d ~/Databases ]
+if ! [ -d ./Databases ]
 then
-	mkdir ~/Databases
+	mkdir ./Databases
 fi
 
 while true
 do
 	echo -n "Enter Database Name: "
 	read database
-	if [ -d ~/Databases/"$database" ]
+	if [ -d ./Databases/"$database" ]
 	then
 		echo "Name Already Exist,Choose another name \n"
 	else
 		break
 	fi
 done
-dir=~/Databases/"$database"
+dir=./Databases/"$database"
 echo "Enter number of tables: \n"
 read num
 
