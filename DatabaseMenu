@@ -2,7 +2,7 @@
 clear
 
 echo -e "##########Connecting to $database##########"
-cd ~/Databases/"$database"
+cd ./Databases/"$database"
 
 PS3="Choose an option:"
 
