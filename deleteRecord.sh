@@ -2,7 +2,7 @@
 clear
 
 
-while $flag2
+while $flag
 do
     echo "Enter Primary Key Value To Delete: "
     if ! read -r pKey
@@ -19,7 +19,7 @@ do
 	then
     	sed --in-place "/$pKey/d" ../Databases/$database/$tableName
     	clear
-        flag2=false
+        flag=false
     	echo "Row Deleted \n"
     	read
         ./main.sh
