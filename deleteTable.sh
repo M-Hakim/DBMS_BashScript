@@ -1,12 +1,13 @@
 #!usr/bin/bash
 clear
-. ./list_tables.sh
+. ./listTables.sh
 echo "Choose table to delete: "
 read table
 
-if [ -f $dir/$table ]
+if [[ -f ./Databases/"$database"/"$table" ]]
 then
-	rm $dir/$table
+	rm ./Databases/"$database"/"$table"
+	rm ./Databases/"$database"/".$table"
 else
 	clear
 	echo "No such Table \n"

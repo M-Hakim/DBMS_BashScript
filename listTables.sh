@@ -5,5 +5,5 @@ echo -------
 # table_list=$(ls -1)
 # echo $table_list
 # ls | cat -n
-ls | awk '{print NR, $0}'
+ls ./Databases/"$database"| awk '{print NR, $0}'
 # ls -1

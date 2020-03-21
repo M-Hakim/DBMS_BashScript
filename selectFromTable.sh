@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ./Databases/"$database"
 echo -n "Table name is: "
 read tableName
 # set -x
@@ -7,7 +8,7 @@ if [[ -f "$tableName" ]]; then
 	PK=$(echo $line | cut -d, -f1)
 	selectAll="SELECT * FROM $tableName"
 	selectByPk="SELECT * FROM $tableName WHERE $PK = ?"
-	exit="EXIT"
+	exit="Back to database menu"
 	options=("$selectAll" "$selectByPk" "$exit")
 	COLUMNS=12
 	select choice in "${options[@]}"
@@ -23,14 +24,14 @@ if [[ -f "$tableName" ]]; then
 			source ./displayRecords.sh $tableName $inputPK
 			;;
 		$exit)
-			exit
+			return
 			;;
 		*)
 			echo "Wrong Choice"
 	esac
 	done
 fi
-
+cd -
 
 
 # sed 's/\,/\,\|\,/g' table2

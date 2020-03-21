@@ -10,7 +10,7 @@ export tableName
 if [ -f $tableName ]
 then
 	echo "Table already exist, please makesure from table name"
-	source ./DatabaseMenu
+	source ./DatabaseMenu.sh
 fi
 
 echo -e "Number of columns: \c"
@@ -122,9 +122,9 @@ echo -n "To return DataBase menu click (y/n):"
 read request
 if [ $request = "y" ]
 then
-	source ./DatabaseMenu
+	source ./DatabaseMenu.sh
 else
 
-	source ./mainMenu
+	source ./main.sh
 
 fi

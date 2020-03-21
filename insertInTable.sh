@@ -12,7 +12,7 @@ read tablename
 if ! [ -f ./Databases/"$database"/"$tablename" ]
 then 
 	echo "there is no table with this name !"
-	source ./DatabaseMenu
+	source ./DatabaseMenu.sh
 fi
 
 
@@ -20,7 +20,7 @@ columnNumber=`awk 'END{print NR}' ./Databases/"$database"/".$tablename"`
 
 echo $columnNumber
 
-dataseparator=",|,"
+dataseparator=","
 rowseparator="\n"
 row=""
 
@@ -70,9 +70,9 @@ echo -n "To return DataBase menu click (y/n):"
 read request
 if [ $request = "y" ]
 then
-	source ./DatabaseMenu
+	source ./DatabaseMenu.sh
 else
 
-	source ./mainMenu
+	source ./main.sh
 
 fi
