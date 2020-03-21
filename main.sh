@@ -1,33 +1,30 @@
 #!/usr/bin/bash
 clear
 echo -e "=====Database Engine MainMenu=====\n"
-PS3="Choose an option: "
-while true
+PS3="DBMS# Choose an option: "
+createDB="CreateDatabase";listDB="ListDatabases";connetToDB="ConnectToDatabase";dropDB="DropDatabase";exit="Exit"
+options=("$createDB" "$listDB" "$connetToDB" "$dropDB" "$exit")
+
+select choice in "${options[@]}"
 do
-		select choice in CreateDatabase ListDatabases ConnectToDatabase DropDatabase Exit
-		do
-		case "$choice" in 
-			CreateDatabase)
-				. ./createDatabase.sh
-				break
-				;;
+case "$choice" in 
+	$createDB)
+		source ./createDatabase.sh
+		;;
 				
-			ListDatabases)
-				break
-				;;
-			ConnectToDatabase)
-				break
-				;;
-			DropDatabase)
-				. ./deleteDatabase.sh
-				break
-				;;
-			Exit)
-				exit
-				;;
-			*)
-				echo -e "Wrong Choice\n"
-		esac
-		done
-		done
+	$listDB)
+		source ./listDatabases
+		;;
+	$connetToDB)
+		source ./selectedDatabase
+		;;
+	$dropDB)
+		source ./deleteDatabase.sh
+		;;
+	$exit)
+		exit
+		;;
+	*)
+		echo -e "Wrong Choice\n"
+esac
 done
