@@ -6,7 +6,7 @@ db=`ls ./Databases | wc -l`
 if ((db == 0))
 then
 	echo "No DataBase exist"
-	source ./mainMenu
+	source ./main.sh
 else
 	clear
 	echo -e "########DBMS########"
@@ -18,6 +18,6 @@ echo -n "To return main menu click (y/n):"
 read request
 if [ $request = "y" ]
 then
-	source ./mainMenu
+	source ./main.sh
 
 fi

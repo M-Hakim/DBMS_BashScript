@@ -13,10 +13,10 @@ case "$choice" in
 		;;
 				
 	$listDB)
-		source ./listDatabases
+		source ./listDatabases.sh
 		;;
 	$connetToDB)
-		source ./selectedDatabase
+		source ./selectedDatabase.sh
 		;;
 	$dropDB)
 		source ./deleteDatabase.sh

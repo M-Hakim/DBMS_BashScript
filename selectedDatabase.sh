@@ -9,10 +9,10 @@ export database
 if [ -d ./Databases/"$database" ]
 then
 	clear
-	source ./DatabaseMenu
+	source ./DatabaseMenu.sh
 else
 	echo -e "There is no Database with this name"
-	source ./mainMenu
+	source ./main.sh
 fi
 
 
