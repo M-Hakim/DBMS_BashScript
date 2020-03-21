@@ -8,6 +8,7 @@ do
 		do
 		case "$choice" in 
 			CreateDatabase)
+				. ./createDatabase.sh
 				break
 				;;
 				
@@ -18,6 +19,7 @@ do
 				break
 				;;
 			DropDatabase)
+				. ./deleteDatabase.sh
 				break
 				;;
 			Exit)

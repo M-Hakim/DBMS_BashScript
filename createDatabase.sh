@@ -11,21 +11,13 @@ do
 	read database
 	if [ -d ./Databases/"$database" ]
 	then
-		echo "Name Already Exist,Choose another name \n"
+		echo "Name Already Exist,Choose another name"
 	else
+		mkdir ./Databases/"$database"
 		break
 	fi
 done
-dir=./Databases/"$database"
-echo "Enter number of tables: \n"
-read num
+. ./main.sh
 
-i=1
-while [ $i -le $num ]
-do
-	. ./createTable.sh
-	clear
-	let i=i+1
-done
 
 

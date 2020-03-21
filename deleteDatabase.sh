@@ -5,12 +5,12 @@ db=`ls ./Databases | wc -l`
 if ((db == 0))
 then
 	echo "No DataBase To Delete"
-	exit
+	return
 else
 	ls ./Databases
 	echo "Choose Database To Delete: "
 	read delete
-	if [ -d ./Databases ]
+	if [ -d ./Databases/"$delete" ]
 	then
 		rm -r ./Databases/"$delete"
 		clear
@@ -18,7 +18,7 @@ else
 		return
 	else
 		echo "No DataBase with this name"
-		exit
+		return
 	fi
 
 fi
