@@ -19,7 +19,7 @@ read NumberOfColumns
 #initialized variables
 counter=1
 separator="|"
-dataseparator=",|,"
+dataseparator=","
 rowSeparator="\n"
 primaryKey=""; field="Field";type="Type";key="Key"
 metaData=$field$separator$type$separator$key
@@ -118,13 +118,14 @@ fi
 
 
 echo 
-echo -n "To return DataBase menu click (y/n):"
-read request
-if [ $request = "y" ]
-then
-	source ./DatabaseMenu.sh
-else
+source ./DatabaseMenu.sh
+# echo -n "To return DataBase menu click (y/n):"
+# read request
+# if [ $request = "y" ]
+# then
+# 	source ./DatabaseMenu.sh
+# else
 
-	source ./main.sh
+# 	source ./main.sh
 
-fi
+# fi

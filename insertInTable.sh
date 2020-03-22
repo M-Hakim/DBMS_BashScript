@@ -1,8 +1,8 @@
-#!/bin/bash
+#! /bin/bash
 clear
 
 
-echo "$database"
+# echo "$database"
 
 echo -e "Table Name : \c"
 read tablename
@@ -61,18 +61,20 @@ if [ $? == 0 ]
 then
 	echo "Your Data is added successfully"
 else
-	echo "Error Take Place, please try again"
+	echo "Error Took Place, please try again"
 fi 
 
 
 echo 
-echo -n "To return DataBase menu click (y/n):"
-read request
-if [ $request = "y" ]
-then
-	source ./DatabaseMenu.sh
-else
 
-	source ./main.sh
+source ./DatabaseMenu.sh
+# echo -n "To return DataBase menu click (y/n):"
+# read request
+# if [ $request = "y" ]
+# then
+# 	source ./DatabaseMenu.sh
+# else
 
-fi
+# 	source ./main.sh
+
+# fi

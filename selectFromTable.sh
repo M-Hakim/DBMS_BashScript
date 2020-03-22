@@ -1,15 +1,17 @@
-#!/bin/bash
-cd ./Databases/"$database"
+#! /bin/bash
+# cd ./Databases/"$database"
 echo -n "Table name is: "
-read tableName
+read tableNameBase
+tableName=./Databases/"$database"/"$tableNameBase"
 # set -x
 if [[ -f "$tableName" ]]; then
 	line=$(head -n 1 $tableName)
 	PK=$(echo $line | cut -d, -f1)
-	selectAll="SELECT * FROM $tableName"
-	selectByPk="SELECT * FROM $tableName WHERE $PK = ?"
+	selectAll="SELECT * FROM $tableNameBase"
+	selectByPk="SELECT * FROM $tableNameBase WHERE $PK = ?"
 	exit="Back to database menu"
 	options=("$selectAll" "$selectByPk" "$exit")
+	PS3="SELECT=# "
 	COLUMNS=12
 	select choice in "${options[@]}"
 	do
@@ -19,41 +21,18 @@ if [[ -f "$tableName" ]]; then
 			;;
 					
 		$selectByPk)
-			echo -n "SELECT * FROM $tableName WHERE $PK = "
+			echo -n "SELECT * FROM $tableNameBase WHERE $PK = "
 			read inputPK
 			source ./displayRecords.sh $tableName $inputPK
 			;;
 		$exit)
-			return
+			# clear
+			source ./DatabaseMenu.sh
 			;;
 		*)
 			echo "Wrong Choice"
 	esac
 	done
+else
+	echo "This table doesn't exist!"
 fi
-cd -
-
-
-# sed 's/\,/\,\|\,/g' table2
-# echo $line
-
-
-
-# header=$(awk -F, '{ for (i=1;i<=NF;i++) {
-#     l=length($i) ;
-#     if ( l > linesize[i] ) linesize[i]=l ;
-#   }
-# }
-# END {
-#     for (l in linesize){
-#     	if(l%2!=0){
-#     		for(j=1;j<=linesize[l];j++) printf "-"
-#     	}
-#     	else{
-#     		printf ",+,";
-#     	}
-#     }
-#     print ""
-# }' table1)
-# awk -v var=$header 'NR==1{print; print var} NR!=1' table1 | column -s, -t 2>>/dev/null
-

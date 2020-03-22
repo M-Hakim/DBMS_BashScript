@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 function generateHeaderSeparator () {
 	local inputFile=$1
 	local headerSeparator=""
@@ -36,7 +36,7 @@ if [[ ! -z "$_inputPK" ]]; then
 	echo ""
 	sed 's/\,/\,\|\,/g' resultTableFile |awk -v var=$headerSeparator 'NR==1{print; print var} NR!=1' | column -s, -t 2>/dev/null
 	echo ""
-
+	rm resultTableFile
 else
 	headerSeparator=$(generateHeaderSeparator $_tableName)
 	

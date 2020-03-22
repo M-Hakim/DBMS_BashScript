@@ -1,7 +1,7 @@
-#!/bin/bash
-clear
+#! /bin/bash
+# clear
 
-echo -e "##########Connecting to $database##########"
+echo -e "########## $database ##########"
 #cd ./Databases/"$database"
 
 PS3="$database=# "
@@ -17,7 +17,7 @@ do
         case $choice in
                 $createTable)
                         source ./createTable.sh
-                        clear
+                        # clear
                         ;;
                 $listTables)
                         source ./listTables.sh
@@ -35,7 +35,8 @@ do
                         source ./deleteRecord.sh
                         ;;
                 $back)
-                        return
+                        # clear
+                        source ./main.sh
                         ;;
                 *)
                         echo "wrong choice"

@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#! /bin/bash
 clear
 if ! [ -d ./Databases ]
 then

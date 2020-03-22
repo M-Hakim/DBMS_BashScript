@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#! /bin/bash
 clear
 db=`ls ./Databases | wc -l`
 
@@ -7,7 +7,12 @@ then
 	echo "No DataBase To Delete"
 	return
 else
-	ls ./Databases
+	# ls ./Databases
+	echo ""
+	echo "Databases:"
+	echo ----------
+	ls ./Databases | awk '{print NR,"-", $0}'
+	
 	echo "Choose Database To Delete: "
 	read delete
 	if [ -d ./Databases/"$delete" ]

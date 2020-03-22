@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#! /bin/bash
 clear
 . ./listTables.sh
 echo "Choose table to delete: "

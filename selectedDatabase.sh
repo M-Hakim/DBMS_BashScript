@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#! /bin/bash
 clear
 
 
@@ -12,7 +12,7 @@ then
 	source ./DatabaseMenu.sh
 else
 	echo -e "There is no Database with this name"
-	source ./main.sh
+	# source ./main.sh
 fi
 
 
